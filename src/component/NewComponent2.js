@@ -9,18 +9,27 @@ export default class NewComponent2 extends Component {
     }
 
     modifyColor = () => {
-        this.setState({ color: 'blue' })
+        this.setState({ color: 'red' })
     }
 
-    // static getDerivedStateFromProps(state, props) {
-    //     console.log("getDerivedStateFromProps")
-    //     return {color: 'brown'}
-    // }
+    shouldComponentUpdate() { // While updating
+        return true;
+    }
 
+    static getDerivedStateFromProps(props, stats) { // called while mounting/updating
+        console.log("getDerivedStateFromProps", "\nprops", props, "\nstats", stats)
+        return { color: stats.color }
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log("getSnapshotBeforeUpdate");
+        
+       alert("Before the update, the favorite was " + prevState.color);
+    }
 
     render() {
         console.log("render");
-        
+
         return (
             <div> Car is of color <button onClick={this.modifyColor}>{this.state.color}</button>, registered in {this.state.country},{this.state.state} </div>
         )

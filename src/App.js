@@ -21,7 +21,7 @@ function App() {
         </a>
         <button>test button</button>
         <NewComponent color='blue'/>
-        <NewComponent2 color='red' model="2021" country="IND" state="KA" />
+        <NewComponent2 color='blue' model="2021" country="IND" state="KA" />
       </header>
     </div>
   );

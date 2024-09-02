@@ -28,9 +28,12 @@ Mounting:
 
 Updating:
     - If there is a update in states or props, component will be updated.
-    
+
     - getDerivedStateFromProps()
-    - shouldComponentUpdate()
+    - shouldComponentUpdate() - true/false to update the component
     - render()
     - getSnapshotBeforeUpdate()
     - componentDidUpdate()
+
+Unmounting:
+    - componentWillUnmount() - Called when removed component from DOM
