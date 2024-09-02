@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import NewComponent from './component/NewComponent';
+import NewComponent2 from './component/NewComponent2';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -17,6 +19,9 @@ function App() {
         >
           Learn React
         </a>
+        <button>test button</button>
+        <NewComponent color='blue'/>
+        <NewComponent2 color='red' model="2021" country="IND" state="KA" />
       </header>
     </div>
   );
