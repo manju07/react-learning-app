@@ -102,6 +102,120 @@ Styling React Using CSS:
         - We can use sass also
 
 React Hooks
+    - Allow functional components to have access to states and other react features. becausse of this, we do not need to use the class components
+    - Rules:
+        - Hooks can only be called inside React function components.
+        - Hooks can only be called at the top level of a component.
+        - Hooks cannot be conditional
+        - Hooks will not work in React class components.
+
+    - Ex:
+        import {useState} from 'react'
+        const [color, setColor] = useState()
+
+
+    - useState(): Used to track the state in functional component
+        import {useState} from 'react'
+        const [color, setColor] = useState()
+        
+        - we can use {color}
+        - to set the color, setColor(newColor)
+        - to set the object, setObject((oldObject) => ...oldObject, {key: newValue})
+
+    - useEffect()
+        - its used to do side effect tasks of components.
+        - it performs side effects.
+        - ex: fetching data, timers, directly updating DOM
+        - useEffect(<function>, [dependencies])
+        - dependency is optional parameter.
+        - Ex-1:
+            This will execute after every render as dependency is not there.
+             useEffect(() => {
+                setTimeout(() => {
+                setCount((count) => count + 1);
+                }, 1000);
+            });
+            
+
+        - Ex-2:
+            Execute only once after first render as we are passing dependency as empty array.
+            useEffect(() => {
+                setTimeout(() => {
+                setCount((count) => count + 1);
+                }, 1000);
+            }, []);
+
+        - Ex-3:
+            useEffect(() => {
+            //Runs on the first render
+            //And any time any dependency value changes
+            }, [prop, state]);
+
+        - Ex-4: effect cleanup to avoid memory leak.
+            useEffect(() => {
+                let timer = setTimeout(() => {
+                setCount((count) => count + 1);
+            }, 1000);
+
+            return () => clearTimeout(timer)
+            }, []);
+
+    - useContext(): Manage state globally, we can avoid prop drilling by passing props as a state for nested components.
+
+        - First we need to create context.
+            import {createContext} from 'react';
+            - const UserContext = createContext(); 
+
+        - Then we need to provide data to a component, so that it will be available to all tree components
+            function Component1() {
+                const [user, setUser] = useState("Jesse Hall");
+
+                return (
+                    <UserContext.Provider value={user}>
+                    <h1>{`Hello ${user}!`}</h1>
+                    <Component2 />
+                    </UserContext.Provider>
+                );
+            }
+
+        - Then we can fetch the state from context in Component5
+            import {useContext} from 'react';
+            function Component5() {
+                const user = useContext(UserContext);
+
+                return (
+                    <>
+                    <h1>Component 5</h1>
+                    <h2>{`Hello ${user} again!`}</h2>
+                    </>
+                );
+            }
+
+    - useRef(): 
+        - used to store mutable data which do not cause the re-rendering.
+        - allows you to persist values between renders.
+        ex:
+        function App() {
+            const [inputValue, setInputValue] = useState("");
+            const count = useRef(0);
+
+            useEffect(() => {
+                count.current = count.current + 1;
+            });
+
+            return (
+                <>
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                />
+                <h1>Render Count: {count.current}</h1>
+                </>
+            );
+        }
+
+
 
 
 
