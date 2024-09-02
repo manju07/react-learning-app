@@ -15,7 +15,7 @@ export default function LoginComponent() {
   }
 
   return (
-    <form>
+    <form style={{ backgroundColor: 'pink', color: 'black' }}>
       <div>Login</div>
       <div>
         <label>Username </label>
