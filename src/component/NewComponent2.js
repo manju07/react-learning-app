@@ -24,7 +24,7 @@ export default class NewComponent2 extends Component {
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log("getSnapshotBeforeUpdate");
         
-       alert("Before the update, the favorite was " + prevState.color);
+    //    alert("Before the update, the favorite was " + prevState.color);
     }
 
     render() {
