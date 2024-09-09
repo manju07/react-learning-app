@@ -8,6 +8,8 @@ import SelectComponent from './component/SelectComponent';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './component/Layout';
 import NoPage from './component/NoPage';
+import ReducerComponent from './component/ReducerComponent';
+import ChildrenComponent from './component/ChildrenComponent';
 
 function App(props) {
 
@@ -15,7 +17,9 @@ function App(props) {
   return (
     <div className="App Test-class">
       <header className="App-header">
-        <LoginComponent />
+        {/* <LoginComponent /> */}
+        <ChildrenComponent />
+        <ReducerComponent />
         {/* <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>

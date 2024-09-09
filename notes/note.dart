@@ -1,5 +1,7 @@
 - vs-code snippets - https://github.com/r5n-dev/vscode-react-javascript-snippets/blob/HEAD/docs/Snippets.md
 
+- docs - https://react.dev/learn
+
 Class Component Lifecycle:
     - Mounting:
         - constructor(props): initiate component props, either thru props or static content
@@ -194,6 +196,7 @@ React Hooks
     - useRef(): 
         - used to store mutable data which do not cause the re-rendering.
         - allows you to persist values between renders.
+        - 
         ex:
         function App() {
             const [inputValue, setInputValue] = useState("");
@@ -215,11 +218,17 @@ React Hooks
             );
         }
 
+    - useReducer(): When properties are more than 3, replacing state with reducer.
+        - this has initial state and reducer function which will take state and action as params.
+        - Refer ReducerComponent.js
 
 
 
+Component childrens:
+    - All childrens within curly braces goes as unique prop name 'children'.
+    - refer: ChildrenComponent.js
 
-
-
-
+React APIs (Manipulating children dynamically)
+    - React.cloneElement(element, [props])
+    - React.children.map(children, (child, index))
 
